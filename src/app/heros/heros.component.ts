@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
+import { HEROS } from '../mock-heros';
 
 // decorator function @component
 // selector : cmponet css element selector
@@ -12,10 +13,11 @@ import { Hero } from './hero';
 })
 export class HerosComponent implements OnInit {
 
-  hero: Hero = {
-    id: 1,
-    name: 'WindStorm'
-  };
+  heros = HEROS;
+  selectedHero: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
   constructor() { }
 
   ngOnInit() {
